@@ -1,0 +1,339 @@
+/* ==========================================================================
+   1. RESET & ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #0b0b0d;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. HERO SECTION (CAPA)
+   ========================================================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background Banner */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.trainer-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.55) contrast(1.1);
+    transform: scale(1.05);
+    animation: zoomInBg 2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 11, 13, 0.4) 0%,
+        rgba(11, 11, 13, 0.2) 50%,
+        rgba(11, 11, 13, 0.95) 100%
+    );
+}
+
+/* Conteúdo Hero */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #ff3e3e;
+    color: #ffffff;
+    padding: 6px 18px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 1s 0.2s forwards;
+}
+
+.main-title {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 62, 62, 0.3);
+    margin-bottom: 0.8rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUpText 1.2s 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    color: #ff3e3e;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1s 0.8s forwards;
+}
+
+.description {
+    color: #d1d1d1;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards;
+}
+
+/* ==========================================================================
+   3. BOTÕES DE AÇÃO (WHATSAPP E INSTAGRAM)
+   ========================================================================== */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s 1.2s forwards;
+}
+
+.btn-whatsapp, 
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1eb957;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+.btn-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(220, 39, 67, 0.4);
+}
+
+.btn-instagram:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
+    filter: brightness(1.1);
+}
+
+/* ==========================================================================
+   4. SEÇÃO SOBRE
+   ========================================================================== */
+.about-section {
+    padding: 6rem 2rem;
+    background-color: #121216;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 62, 62, 0.2);
+    object-fit: cover;
+}
+
+.about-content {
+    animation: revealUp 1.2s ease-out forwards;
+}
+
+.section-tag {
+    color: #ff3e3e;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.about-content p {
+    color: #b0b0b8;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+}
+
+.about-content strong {
+    color: #ffffff;
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #ff3e3e;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.highlight-desc {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   5. ANIMAÇÕES (@KEYFRAMES)
+   ========================================================================== */
+@keyframes fadeInUpText {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes zoomInBg {
+    0% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes revealUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .about-highlights {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-whatsapp, 
+    .btn-instagram {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+}
